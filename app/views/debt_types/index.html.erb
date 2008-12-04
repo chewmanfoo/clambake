@@ -1,0 +1,20 @@
+<h1>Listing debt_types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% for debt_type in @debt_types %>
+  <tr>
+    <td><%=h debt_type.name %></td>
+    <td><%= link_to 'Show', debt_type %></td>
+    <td><%= link_to 'Edit', edit_debt_type_path(debt_type) %></td>
+    <td><%= link_to 'Destroy', debt_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New debt_type', new_debt_type_path %>

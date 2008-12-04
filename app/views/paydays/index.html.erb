@@ -1,0 +1,23 @@
+<h1><%= @paydays.size %> Paydays</h1>
+
+<table class="stats" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Name</th>
+    <th>Due date</th>
+    <th>Amount</th>
+    <th>Note</th>
+    <th>Actions</th>
+  </tr>
+
+<% for payday in @paydays %>
+  <tr>
+    <td><%=h payday.name %></td>
+    <td><%=h payday.due_date %></td>
+    <td><%=h payday.amount %></td>
+    <td><%=h payday.note %></td>
+    <td><%= link_to 'Show', payday %>
+    <%= link_to 'Edit', edit_payday_path(payday) %>
+    <%= link_to 'Destroy', payday, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

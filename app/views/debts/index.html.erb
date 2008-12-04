@@ -1,0 +1,55 @@
+<%#= debug @debts %>
+<%#= debug @goals %>
+<%#= debug params %>
+<%#= debug request.env %>
+
+<h1><%= @total %> Debts</h1>
+
+<p>
+<form name="sform" action="" style="display:inline;">
+  <label for="debt_name">Filter on debt name  : </label>
+  <%= text_field_tag("query", params['query'], :size => 10 ) %>
+</form>
+
+<%= image_tag("spinner.gif",
+              :align => "absmiddle",
+              :border => 0,
+              :id => "spinner",
+              :style =>"display: none;" ) %>
+</p>
+
+<%= observe_field 'query',  :frequency => 2,
+                            :update => 'table',
+                            :before => "Element.show('spinner')",
+                            :success => "Element.hide('spinner')",
+                            :url => {:action => 'list'},
+                            :with => 'query' %>
+
+<div id="sort-by"><b>Sort by: </b>
+<% b_up = "<b>^</b>"; b_dn = "<b>v</b>" %>
+<%= link_to "Name"+b_up, debts_path( :sorter => "name" )%>|
+<%= link_to "Name"+b_dn, debts_path( :sorter => "name_rev" )%>|
+<%= link_to "Company"+b_up, debts_path( :sorter => "company_id" )%>|
+<%= link_to "Company"+b_dn, debts_path( :sorter => "company_id_rev" )%>|
+<%= link_to "Payday"+b_up, debts_path( :sorter => "payday_id" )%>|
+<%= link_to "Payday"+b_dn, debts_path( :sorter => "payday_id_rev" )%>|
+<%= link_to "Total"+b_up, debts_path( :sorter => "total_due" )%>|
+<%= link_to "Total"+b_dn, debts_path( :sorter => "total_due_rev" )%>|
+<%= link_to "Min"+b_up, debts_path( :sorter => "min_due" )%>|
+<%= link_to "Min"+b_dn, debts_path( :sorter => "min_due_rev" )%>|
+<%= link_to "Day"+b_up, debts_path( :sorter => "due_day" )%>|
+<%= link_to "Day"+b_dn, debts_path( :sorter => "due_day_rev" )%>|
+<%= link_to "APR"+b_up, debts_path( :sorter => "apr" )%>|
+<%= link_to "APR"+b_dn, debts_path( :sorter => "apr_rev" )%>
+</div>
+
+<% content_for :goals do %>
+  <h3>Goals</h3>
+  <ul>
+  <%- for goal in @goals -%>
+    <li><%= link_to goal.name, edit_goal_path(@goal) if goal.name %></li>
+  <%- end -%>  
+  </ul>
+<% end %>
+
+<%= render :partial => @debts %>

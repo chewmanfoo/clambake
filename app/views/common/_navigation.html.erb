@@ -1,0 +1,29 @@
+<% if logged_in? %>
+  <p><strong>You are logged in as <%=h current_user.login %></strong></p>
+  <p><%= link_to 'Logout', logout_path %></p>
+<h3>Links</h3>
+<ul class="nav-links">
+  <li><%= link_to 'Home', home_path %></li>
+  <li><%= link_to 'New debt', new_debt_path %></li>
+  <li><%= link_to 'New debt type', new_debt_type_path %></li>
+  <li><%= link_to 'New goal', new_goal_path %></li>
+  <li><%= link_to 'New company', new_company_path %></li>
+  <li><%= link_to 'New payday', new_payday_path %></li>
+  <li><%= link_to 'New budget', new_budget_path %></li>
+</ul>
+<hr />
+<ul class="nav-links">
+  <li><%= link_to 'Debts', debts_path %>
+  <li><%= link_to 'Debt Types', debt_types_path %></li>
+  <li><%= link_to 'Goals', goals_path %></li>
+  <li><%= link_to 'Companies', companies_path %></li>
+  <li><%= link_to 'Paydays', paydays_path %></li>
+  <li><%= link_to 'Budgets', budgets_path %></li>
+</ul>
+<% else %>
+  <p><strong>You are currently not logged in.</strong></p>
+  <p>
+    <%= link_to 'Login', login_path %> or
+    <%= link_to 'Sign Up', signup_path %>
+  </p>
+<% end %>

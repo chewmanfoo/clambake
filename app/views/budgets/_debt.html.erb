@@ -1,0 +1,10 @@
+<div class="debtForm">
+  <p>
+  <select name="budget[debts][]">
+    <% @debts.each do |d| %>
+      <option value="<%= d.id %>"><%= d.name %></option>
+    <% end %>
+  </select>
+  <%= link_to_function "remove", "this.up('.debtForm').remove(1)" %>
+  </p>
+</div> <!-- end of div class="debtForm" -->

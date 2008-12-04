@@ -1,0 +1,16 @@
+<div class="money_table">
+  <table class="stats" width="110px">
+    <tr>
+      <th class="tiny_header">total</th>
+      <th class="tiny_header">min</th>
+      <th class="tiny_header">day</th>
+      <th class="tiny_header">apr</th>
+    </tr>
+    <tr>
+      <td><%= number_to_currency(total_due_out(debt)) %></td>
+      <td><%= number_to_currency(min_due_out(debt)) %></td>
+      <td><%= debt.due_day %></td>
+      <td><%= debt.apr %>%</td>
+    </tr>
+  </table>
+</div>

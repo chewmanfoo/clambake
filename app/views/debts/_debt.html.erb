@@ -1,0 +1,22 @@
+<div class="debtContent">
+  <div class="debtHeader">
+    <div class="debtType">
+      <%=h debt.debt_type.name if debt.debt_type.name %><br />
+    </div>
+    <div class="debtName">
+      <h3><%=h debt.name %></h3>
+      <br />
+      <%= link_to h(debt.company.name), debt.company %>
+      <div class="debtNote">
+        <%=h debt.note %>
+      </div>
+    </div>
+  </div><!-- end of debtHeader -->  
+  Payday: <%= link_to h(debt.payday.name), debt.payday %>
+  <%= render :partial => 'money_table', :locals => {:debt => debt} %>
+  <%= render :partial => 'actions', :locals => {:debt => debt} %>
+  <div style="clear:both;"></div>
+  <div class="debtFooter">
+    <i>updated: <%=h debt.updated_at %> created: <%=h debt.created_at %></i>
+  </div><!-- end of debtFooter--> 
+</div><!-- end of content-->

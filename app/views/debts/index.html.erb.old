@@ -1,0 +1,51 @@
+<h1><%= @debts.size %> Debts</h1>
+
+<table class="stats" border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Name</th>
+    <th>Company</th>
+    <th>Payday</th>
+    <th>Money</th>
+    <th>Action</th>
+  </tr>
+
+<% for debt in @debts %>
+  <tr>
+    <td><b><%=h debt.name %></b><br />
+        <i><%=h debt.note %></i> <br />
+        updated: <%=h debt.updated_at %> <br />
+        created: <%=h debt.created_at %>
+    </td>
+    <td><%= link_to debt.company.name, debt.company %></td>
+    <td><%= link_to debt.payday.name, debt.payday %></td>
+    <td><table width="110px">
+      <tr>
+        <th class="tiny_header">total</th>
+        <th class="tiny_header">min</th>
+      </tr>
+      <tr>
+        <td>$<%= sprintf("%.2f",Float(debt.total_due/100)) if debt.total_due %></td>
+        <td>$<%= sprintf("%.2f",Float(debt.min_due/100)) if debt.min_due %></td>
+      </tr>
+      <tr>
+        <th class="tiny_header">day</th>
+        <th class="tiny_header">apr</th>
+      </tr>
+      <tr><td><%= debt.due_day %></td>
+      <td><%= debt.apr %>%</td></tr>
+      </table></td>
+    <td><%= link_to image_tag("icons/small/sh_t.png", :border => 0), 
+                        :action => :show, 
+                        :id => debt %>
+        <%= link_to image_tag("icons/small/ed_t.png", :border => 0), 
+                        :action => :edit, 
+                        :id => debt %>
+        <%= link_to image_tag("icons/small/del_t.png", :border => 0), 
+                       {:action => :destroy, 
+                        :controller => :debts,
+                        :id => debt.id}, 
+                        :method => "delete",
+                        :confirm => "Are you sure?" %></td>
+  </tr>
+<% end %>
+</table>

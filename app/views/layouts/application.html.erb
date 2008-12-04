@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title> Clambake.com - personal cashflow management :: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+  <%= stylesheet_link_tag 'default' %>
+  <%= stylesheet_link_tag 'table' %>
+  <%= stylesheet_link_tag 'debts' %>
+  <%= javascript_include_tag :defaults %>
+  <link rel="shortcut icon" href="favicon.ico" >
+</head>
+<body>
+  <div id="container">
+    <div id="header">
+      <%= image_tag("logo3.png") %>
+      <h1>Welcome to Clambake</h1>
+    </div>
+    <div id="wrapper">
+      <div id="content">
+                            
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= yield  %>
+      </div>
+    </div>
+    <div id="navigation">
+      <%= render :partial => "common/navigation" %>
+    </div> 
+    <div id="extra">
+      <%= yield(:goals) || render(:partial => "common/extra") %>
+    </div> 
+    <div id="footer">
+      <%= render :partial => "common/footer" %>
+    </div>
+  </div>              
+</body>
+</html>

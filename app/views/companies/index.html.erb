@@ -1,0 +1,32 @@
+<h1><%= @companies.size %> Companies</h1>
+
+<table class="stats" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Company</th>
+    <th>Action</th>
+  </tr>
+
+<% for company in @companies %>
+  <tr>
+    <td>
+    <div class="company-amt-owed">
+      <%=h number_to_currency(total_owed(company.id)) %>
+    </div>
+    <div class="company-name"><%=h company.name %></div> <br />
+    <div class="tiny-italic"><%=h company.created_at.to_s(:datetime_mdY) %>
+    <%=h company.updated_at.to_s(:datetime_mdY) %></div></td>
+    <td><%= link_to image_tag("icons/small/sh_t.png", :border => 0),
+                    :action => :show,
+                    :id => company %>
+        <%= link_to image_tag("icons/small/ed_t.png", :border => 0),
+                    :action => :edit,
+                    :id => company %>
+        <%= link_to image_tag("icons/small/del_t.png", :border => 0),
+                   {:action => :destroy,
+                    :controller => :companies,
+                    :id => company.id},
+                    :method => "delete",
+                    :confirm => "Are you sure?" %></td>
+  </tr>
+<% end %>
+</table>

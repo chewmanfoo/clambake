@@ -1,0 +1,8 @@
+<div class="footer-right">
+<% if logged_in? %>
+  <strong>You are logged in as <%=h current_user.login %></strong>. 
+  <%= link_to 'Logout', logout_path %>
+<% end %>
+</div>
+<p><em>Copyright 2008 Jason Michael.  All rights reserved</em>
+</p>

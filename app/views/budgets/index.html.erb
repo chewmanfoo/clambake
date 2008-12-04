@@ -1,0 +1,28 @@
+<h1>Listing budgets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Note</th>
+    <th>Payday</th>
+    <th>User</th>
+    <th>Num Debts</th>  
+  </tr>
+
+<% for budget in @budgets %>
+  <tr>
+    <td><%=h budget.name %></td>
+    <td><%=h budget.note %></td>
+    <td><%=h budget.payday.name %></td>
+    <td><%=h budget.user.login %></td>
+    <td><%=h budget.debts.size %></td>
+    <td><%= link_to 'Sh', budget %></td>
+    <td><%= link_to 'Ed', edit_budget_path(budget) %></td>
+    <td><%= link_to 'XX', budget, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New budget', new_budget_path %>

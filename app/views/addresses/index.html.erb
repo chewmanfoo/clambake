@@ -1,0 +1,62 @@
+<h1>Addresses</h1>
+
+<div id="itsthetable">
+<table summary="A list of addresses">
+<caption>Addresses</caption>
+<thead>
+<table>
+  <tr>
+    <th></th>
+    <th>Name</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>Address3</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Zip</th>
+    <th>Country</th>
+    <th>Created</th>
+    <th>Updated</th>
+    <th>Action</th>
+  </tr>
+</thead>
+<tfoot>
+  <tr>
+    <th scope="row">Total</th>
+    <td colspan="3"><%= @address_count %> addresses</td>
+  </tr>
+</tfoot>
+<tbody>
+<% for address in @addresses %>
+  <tr>
+    <td><%=h address.number %></td>
+    <th scope="row"><%=h address.name %></th>
+    <td><%=h address. %></td>
+    <td><%=h address. %></td>
+    <td><%=h address. %></td>
+    <td><%=h address. %></td>
+    <td><%= link_to image_tag("icons/small/sh_t.png", :border => 0), 
+                    :action => :show, 
+                    :id => address %>
+    <%= link_to image_tag("icons/small/ed_t.png", :border => 0), 
+                    :action => :edit, 
+                    :id => address %>
+    <%= link_to image_tag("icons/small/del_t.png", :border => 0), 
+                   {:action => :destroy, 
+                    :controller => :addresses,
+                    :id => address.id}, 
+                    :method => "delete",
+                    :confirm => "Are you sure?" %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
+
+<br />
+
+<b>Phone Numbers:</b>
+<%= link_to 'New', new_address_path %> |
+<%= link_to 'List', addresss_path %>
+<b>Phone Number Types:</b>
+<%= link_to 'New', new_address_type_path %> |
+<%= link_to 'List', address_types_path %>

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @goal.name %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%=h @goal.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_goal_path(@goal) %> |
+<%= link_to 'Back', goals_path %>

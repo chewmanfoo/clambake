@@ -1,0 +1,98 @@
+html,body {
+  margin:0;
+  padding:0
+}
+
+body {
+  font: 76% arial,sans-serif;
+  text-align:center
+}
+
+p {
+  margin:0 10px 10px
+}
+
+a {
+  color: #981793;
+}
+
+div#header h1 {
+/*  height:80px;
+  line-height:80px;*/
+  margin:-5px 0 0 0;
+  padding:10px 10px 10px 10px;
+  background: black;
+  color: white;
+  font-family: times; 
+  text-align: center;
+}
+
+div#container {
+  text-align:left;
+}
+
+div#content p {
+  line-height:1.4;
+}
+
+div#navigation {
+  background-image:url(http://atomic43.com/clambake/images/left_h_slice.png);
+  float:left;
+  width:150px;
+  margin-left:-800px;
+}
+
+div#extra {
+  background-image:url(http://atomic43.com/clambake/images/right_h_slice.png);
+  float:left;
+  width:150px;
+  margin-left:-150px;
+}
+
+div#footer {
+  background: #333;
+  color: #FFF;
+  clear:left;
+  width:100%;
+}
+
+div#footer p {
+  margin:0;
+  padding:5px 10px;
+}
+
+div#container {
+  width:800px;
+  margin:0 auto;
+}
+
+div#wrapper {
+  float:left;
+  width:100%;
+}
+
+div#content { 
+  margin: 10px 10px 10px 160px;
+  width: 480px;
+}
+
+div#actions {
+  border: 1px;
+}
+
+h3 {
+  margin: 0 0 0 5px;
+}
+
+div#extra h3 {
+  color: white;
+}
+
+div#extra a {
+  color: silver; 
+}
+
+span.form-tip {
+  color: blue;
+  font-size: smaller;
+}  

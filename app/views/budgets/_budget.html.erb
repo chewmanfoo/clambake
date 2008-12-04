@@ -1,0 +1,19 @@
+<div class="budget">
+<h3><%=h @budget.name %></h3>
+<p>
+<b>Payday: </b><%=h @budget.payday.name %>
+<b>Amount: </b><%=h number_to_currency(@budget.payday.amount_out) %><br />
+<b>Note: </b><%=h @budget.note %><br />
+<table class="stats" cellpadding="5" cellspacing="0">
+<tr><th>Debt</th><th>Amount</th><th>Paid?</th></tr>
+<% for debt in @budget.debts %>
+<tr>
+  <td><%=h debt.name %></td>
+  <td style="text-align:right"><%=h number_to_currency(min_due_out(debt)) %></td>
+  <td><%= check_box :budget_line, :paid %></td>
+</tr>
+<% end %>
+<tr><td colspan="2" style="text-align:right"><b>total:</b><%= total_min_due(@budget) %></td></tr>
+</table>
+</p>
+</div>

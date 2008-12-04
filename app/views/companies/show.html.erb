@@ -1,0 +1,44 @@
+<p>
+  <b>Name:</b>
+  <%=h @company.name %>
+</p>
+
+<table class="stats" cellpadding="5" cellspacing="0">
+  <tr>
+      <th>Debt</th>
+      <th>Total Due</th>
+      <th>Min Due</th>
+      <th>Due Day</th>
+      <th>APR</th>
+  </tr>
+
+  <% for debt in @debts %>
+  <tr>
+    <td>
+      <%= h debt.name %>
+    </td>
+    <td>
+      $<%= sprintf("%.2f",Float(debt.total_due/100)) if debt.total_due %> 
+    </td>
+    <td>
+      $<%= sprintf("%.2f",Float(debt.min_due/100)) if debt.min_due %>
+    </td>
+    <td>
+      <%= h debt.due_day %>
+    </td>
+    <td>
+      <%= h debt.apr %>%
+    </td>
+  </tr>
+  <% end %>
+  <tr>
+    <th>&nbsp;</th>
+    <th>$<%= sprintf("%.2f",Float(total_owed(@company.id))) if total_owed(@company.id) %></th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+  </tr>
+</table>
+
+<%= link_to 'Edit', edit_company_path(@company) %> |
+<%= link_to 'Back', companies_path %>

@@ -1,0 +1,24 @@
+  <div class="actions">
+  <table>
+    <tr>
+      <td>
+      <%= link_to image_tag("icons/small/sh_t.png", :border => 0),
+                            :action => :show,
+                            :id => debt %>
+      </td>
+      <td>
+      <%= link_to image_tag("icons/small/ed_t.png", :border => 0),
+                            :action => :edit,
+                            :id => debt %>
+      </td>
+      <td>
+      <%= link_to image_tag("icons/small/del_t.png", :border => 0),
+                           {:action => :destroy,
+                            :controller => :debts,
+                            :id => debt.id},
+                            :method => "delete",
+                            :confirm => "Are you sure?" %>
+      </td>
+    </table>
+  </div>
+

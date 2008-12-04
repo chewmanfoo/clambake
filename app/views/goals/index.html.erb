@@ -1,0 +1,22 @@
+<h1>Listing goals</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Notes</th>
+  </tr>
+
+<% for goal in @goals %>
+  <tr>
+    <td><%=h goal.name %></td>
+    <td><%=h goal.notes %></td>
+    <td><%= link_to 'Show', goal %></td>
+    <td><%= link_to 'Edit', edit_goal_path(goal) %></td>
+    <td><%= link_to 'Destroy', goal, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New goal', new_goal_path %>

@@ -1,0 +1,8 @@
+<% if logged_in? %>
+<h3>Goals</h3>
+<ul>
+<% for goal in @goals %>
+  <li><%= link_to goal.name, edit_goal_path(@goal) if goal.name %>
+<% end %>
+<% end %>
+</ul>

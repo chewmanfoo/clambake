@@ -1,0 +1,28 @@
+<p>
+  <b>Name:</b>
+  <%=h @payday.name %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%=h @payday.due_date %>
+</p>
+
+<p>
+  <b>Note:</b>
+  <%=h @payday.note %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @payday.created_at %>
+</p>
+
+<p>
+  <b>Updated at:</b>
+  <%=h @payday.updated_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_payday_path(@payday) %> |
+<%= link_to 'Back', paydays_path %>
